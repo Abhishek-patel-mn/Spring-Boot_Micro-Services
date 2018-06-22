@@ -1,0 +1,28 @@
+button {
+	margin-right: 0.5%;
+	margin-bottom: 0.5%;
+	margin-top: 0.5%;
+}
+
+.panel-content {
+	margin-left: -15px;
+}
+
+.panel-heading {
+	background-color: #337ab7;
+	color: white;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	text-align: center;
+}
+
+.panel-body {
+	background-color: white;
+	color: black;
+	margin-top: -8px;
+}
+
+.plane {
+	background-color: white;
+	color: blue
+}
