@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(name = "user-service")
+@FeignClient(name = "atm-api-gate-way")
 @RibbonClient(name = "user-service")
 @Component
 public interface UserProxy {
@@ -14,7 +14,7 @@ public interface UserProxy {
 	@GetMapping("/getAllUsers")
 	public String hello();
 	
-	@GetMapping("/public/users")
+	@GetMapping("user-service/public/users")
 	public ResponseEntity<String> getAllUsers();
 
 }
