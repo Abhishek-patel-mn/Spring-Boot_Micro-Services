@@ -13,4 +13,5 @@ public class AtmApiGateWayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AtmApiGateWayApplication.class, args);
 	}
+	
 }

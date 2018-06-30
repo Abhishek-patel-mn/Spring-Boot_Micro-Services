@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,8 @@ public class UserController {
 
 	@Autowired
 	UserMgmtService userMgmtService;
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@PostMapping(value = { "/secured/users", "/rest/users", "/public/users" })
 	public ResponseEntity<String> addUser(@Valid @RequestBody User user) {
@@ -47,6 +51,7 @@ public class UserController {
 
 	@GetMapping(value = { "/secured/users", "/rest/users", "/public/users" })
 	public ResponseEntity<String> getAllUsers() {
+		logger.info("Inside get all methods..");
 		JSONObject jsonResponse = new JSONObject();
 		try {
 			List<UserDto> users = userMgmtService.getAllUsers();

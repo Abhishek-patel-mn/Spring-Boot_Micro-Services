@@ -9,6 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import brave.sampler.Sampler;
+
 @SpringBootApplication
 @EnableDiscoveryClient
 @ComponentScan("com.abhi")
@@ -31,4 +33,10 @@ public class UserServiceApplication {
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	};
+	
+	// Sending request trace to zipkin server always..
+	@Bean
+	Sampler getSampler() {
+		return Sampler.ALWAYS_SAMPLE;
+	}
 }
