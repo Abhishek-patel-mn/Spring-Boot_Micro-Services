@@ -123,7 +123,20 @@ public class UserMgmtServiceImpl implements UserMgmtService {
 
 	@Override
 	public void updateUser(User user) throws BusinessServiceException, DataAccessException {
-		userRepository.save(user);
+		User _user = userRepository.findByUserName(user.getUserName()).get();
+		if(user.getEmail() != null)
+			_user.setEmail(user.getEmail());
+		if(user.getPhoneNumber()+"" != null)
+			_user.setPhoneNumber(user.getPhoneNumber());
+		
+		if(user.getPassword() != null)
+			_user.setPassword((bCryptPasswordEncoder.encode(user.getPassword())));
+		
+		if(user.getRole() != null)
+			if(user.getRole().getRoleName() != null)
+				_user.setRole(user.getRole());
+		
+		userRepository.save(modelMapper.map(_user, User.class));
 	}
 
 }

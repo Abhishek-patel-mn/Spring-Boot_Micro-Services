@@ -19,7 +19,7 @@ public class User {
 	}
 	
 	public User(User user) {
-		this.userId = user.getUserId();
+		this.id = user.getId();
 		this.userName = user.getUserName();
 		this.password = user.getPassword();
 		this.phoneNumber = this.getPhoneNumber();
@@ -28,7 +28,7 @@ public class User {
 		this.role = user.getRole();
 	}
 	
-	private int userId;
+	private String id;
 	
 	@NotNull
 	private String userName;
@@ -60,12 +60,12 @@ public class User {
 		this.createdDate = createdDate;
 	}
 
-	public int getUserId() {
-		return userId;
+	public String getId() {
+		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setId(String Id) {
+		this.id = Id;
 	}
 
 	public String getUserName() {

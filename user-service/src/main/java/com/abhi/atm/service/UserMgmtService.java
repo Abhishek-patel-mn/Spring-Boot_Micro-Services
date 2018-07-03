@@ -21,4 +21,5 @@ public interface UserMgmtService {
 	void deleteUser(Integer userId) throws BusinessServiceException, DataAccessException;
 
 	void updateUser(User user) throws BusinessServiceException, DataAccessException;
+		
 }

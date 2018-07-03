@@ -31,7 +31,7 @@ public class UserController {
 
 	@Autowired
 	UserMgmtService userMgmtService;
-	
+
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@PostMapping(value = { "/secured/users", "/rest/users", "/public/users" })
@@ -89,18 +89,17 @@ public class UserController {
 		}
 	}
 
-	@PutMapping(value = "/secured/users/{userId}")
-	public ResponseEntity<String> updateUser(@Valid @PathVariable(name = "userId") Integer userId,
-			@RequestBody User user) {
+	@PutMapping(value ="/secured/users")
+	public ResponseEntity<String> updateUser(@RequestBody User user) {
 		JSONObject jsonResponse = new JSONObject();
 		try {
-			user.setUserId(userId);
 			userMgmtService.updateUser(user);
-			jsonResponse.put("data", "User " + userId + " updated successfully");
+			jsonResponse.put("data", "User " + user.getUserName() + " updated successfully");
 			return new ResponseEntity<String>(jsonResponse.toString(), HttpStatus.OK);
 		} catch (Exception e) {
 			jsonResponse.put("data", e.getMessage());
 			return new ResponseEntity<String>(jsonResponse.toString(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
 }

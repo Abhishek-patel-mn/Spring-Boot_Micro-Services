@@ -2,25 +2,29 @@ package com.abhi.atm.dto;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author Abhishek Patel M N Aug 13, 2017 7:51:28 PM 2017
  */
 public class UserDto {
 
-	private int userID;
+	private String id;
+	@NotNull
 	private String userName;
+	@NotNull
 	private String password;
 	private String email;
 	private int phoneNumber;
 	private Date createdDate;
 	private RoleDto role;
 
-	public int getUserID() {
-		return userID;
+	public String getId() {
+		return id;
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	public void setID(String id) {
+		this.id = id;
 	}
 
 	public RoleDto getRole() {
